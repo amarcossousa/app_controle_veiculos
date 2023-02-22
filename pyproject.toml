@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "quali"
+version = "0.1.0"
+description = "A app in developement"
+authors = ["Marcos Sousa <antoniomarcus13@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.92.0"}
+pytest = "^7.2.1"
+sqlalchemy = "^2.0.3"
+alembic = "^1.9.3"
+pydantic = "^1.10.4"
+httpx = "^0.23.3"
+psycopg2 = "^2.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
