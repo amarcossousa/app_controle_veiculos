@@ -1,5 +1,5 @@
 from logging.config import fileConfig
-from apps.src.infra.sqlalchemy.models import *
+from apps.src.infra.sqlalchemy.models.model import *
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from apps.src.infra.sqlalchemy.config.database import Base
