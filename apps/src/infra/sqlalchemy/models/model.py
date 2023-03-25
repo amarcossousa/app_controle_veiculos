@@ -35,7 +35,10 @@ class ControleKm(Base):
     km_inicial = Column(Integer)
     km_final = Column(Integer)
     objetivo = Column(String(80))
+    tec_responsavel = Column(String)
+    projeto = Column(String)
     qt_combustivel = Column(Integer)
+    created = Column(DateTime, default=datetime.now())
 
     
 

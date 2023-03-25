@@ -28,7 +28,7 @@ class LoginSucess(BaseModel):
     user: UsersSimple
     acess_token: str
 
-class ControleKmSchema(BaseModel):
+class ControleKm(BaseModel):
     id: Optional[int] = None
     data: str
     destino: str
@@ -37,4 +37,9 @@ class ControleKmSchema(BaseModel):
     km_inicial: int
     km_final: int
     objetivo: str
+    tec_responsavel: str
+    projeto: str
     qt_combustivel: int
+
+    class Config:
+        orm_mode = True
