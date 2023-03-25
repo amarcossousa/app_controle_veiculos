@@ -38,7 +38,15 @@ async def login(login_data: LoginData, session: Session = Depends(get_db)):
     return LoginSucess(user=user, acess_token=token)
 
 
-
+@router.delete('/user/{id}')
+def remove_user(id: int, session: Session = Depends(get_db)):
+    user = CrudUsers(session).get_user(id)
+    print(id)
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail='Usuário não encontrato')
+    CrudUsers(session).delete_user(id)
+    return {'msg': 'Usuário removido com sucesso'}
 
 # não encontra o id e não retorna a lista completa 
 # @router.get("/user/", response_model=UsersSimple)

@@ -27,3 +27,14 @@ class LoginData(BaseModel):
 class LoginSucess(BaseModel):
     user: UsersSimple
     acess_token: str
+
+class ControleKmSchema(BaseModel):
+    id: Optional[int] = None
+    data: str
+    destino: str
+    hora_saida: str
+    hora_chegada: str
+    km_inicial: int
+    km_final: int
+    objetivo: str
+    qt_combustivel: int
