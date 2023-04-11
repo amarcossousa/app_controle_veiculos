@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from apps.src.infra.sqlalchemy.config.database import get_db
 from apps.src.infra.sqlalchemy.config.database import criar_db
 from apps.src.infra.providers import hash_providers, token_providers
+from apps.src.router.routers_utils import get_current_user
 
 criar_db()
 router = APIRouter()
@@ -19,10 +20,11 @@ def signup(user: Users, session: Session = Depends(get_db)):
     return user_created
 
 
-@router.post('/token', response_model=LoginSucess)
+@router.post('/token', response_model=LoginSucess, status_code=status.HTTP_202_ACCEPTED)
 async def login(login_data: LoginData, session: Session = Depends(get_db)):
-    password = login_data.password
     email = login_data.email
+    password = login_data.password
+    
 
     user = CrudUsers(session).get_user_by_email(email)
 
@@ -39,9 +41,8 @@ async def login(login_data: LoginData, session: Session = Depends(get_db)):
 
 
 @router.delete('/user/{id}')
-def remove_user(id: int, session: Session = Depends(get_db)):
+def remove_user(id: int, session: Session = Depends(get_db), User = Depends(get_current_user)):
     user = CrudUsers(session).get_user(id)
-    print(id)
     if user is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail='Usuário não encontrato')

@@ -10,21 +10,44 @@ from apps.src.infra.sqlalchemy.crud import crud_users
 oauth2_schema = OAuth2PasswordBearer (tokenUrl = 'token')
 
 
+# def get_current_user(token: str = Depends(oauth2_schema),
+#                     session: Session = Depends(get_db)):
+#     exception = HTTPException(
+#         status_code=status.HTTP_401_UNAUTHORIZED, detail='Token inválido'
+#     )
+
+#     try:
+#         email = token_providers.verify_acess_token(token)
+#     except JWTError:
+#         raise exception
+    
+#     if not email:
+#         raise exception
+
+#     user = crud_users.CrudUsers.get_user_by_email(email)
+
+#     if not user:
+#         raise exception
+
+#     return user
+
 def get_current_user(token: str = Depends(oauth2_schema),
-                    session: Session = Depends(get_db)):
+                     session: Session = Depends(get_db)):
     exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED, detail='Token inválido'
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Token inválido",
+        headers={"WWW-Authenticate": "Bearer"},
     )
 
     try:
-        email = token_providers.verify_acess_token(token)
-    except JWTError:
+        email = token_providers.verify_access_token(token)
+    except Exception:
         raise exception
-    
+
     if not email:
         raise exception
 
-    user = crud_users.CrudUsers.get_user_by_phone_number(email)
+    user = crud_users.CrudUsers.get_user_by_email(session, email)
 
     if not user:
         raise exception
