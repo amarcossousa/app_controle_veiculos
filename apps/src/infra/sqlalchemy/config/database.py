@@ -3,7 +3,7 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost/db_quali"
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost:5433/quali_db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, #connect_args={"check_same_thread": False}

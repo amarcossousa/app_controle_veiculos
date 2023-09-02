@@ -6,6 +6,7 @@ class Users(BaseModel):
     name: str
     email: EmailStr
     password: str
+    cpf: str
 
     class Config:
         orm_mode = True
