@@ -6,6 +6,7 @@ from apps.src.infra.sqlalchemy.config.database import get_db
 from apps.src.infra.sqlalchemy.config.database import criar_db
 from apps.src.infra.providers import hash_providers, token_providers
 from apps.src.router.routers_utils import get_current_user
+from apps.src.infra.providers.token_providers import verify_acess_token
 
 criar_db()
 router = APIRouter()
@@ -41,7 +42,7 @@ async def login(login_data: LoginData, session: Session = Depends(get_db)):
 
 
 @router.delete('/user/{id}')
-def remove_user(id: int, session: Session = Depends(get_db), User = Depends(get_current_user)):
+def remove_user(id: int, session: Session = Depends(get_db), user = Depends(get_current_user)):
     user = CrudUsers(session).get_user(id)
     if user is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
@@ -55,3 +56,7 @@ def remove_user(id: int, session: Session = Depends(get_db), User = Depends(get_
 #     users = CrudUsers(session).get_all_users()
 #     return users
 
+@router.get("/me", response_model= UsersSimple)
+def read_user_me(user: Users = Depends (get_current_user)):
+    return user
+    

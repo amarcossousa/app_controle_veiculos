@@ -40,14 +40,14 @@ def get_current_user(token: str = Depends(oauth2_schema),
     )
 
     try:
-        email = token_providers.verify_access_token(token)
-    except Exception:
+        email = token_providers.verify_acess_token(token)
+    except JWTError:
         raise exception
 
     if not email:
         raise exception
 
-    user = crud_users.CrudUsers.get_user_by_email(session, email)
+    user = crud_users.CrudUsers(session).get_user_by_email(email)
 
     if not user:
         raise exception
