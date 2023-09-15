@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+/* Estilos para a barra lateral */
+.sidebar {
+    background-color: #333;
+    color: white;
+    width: 150px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Estilos para o conteúdo principal à direita */
+.main-content {
+    margin-left: 170px; /* Largura da barra lateral + espaço de margem */
+    padding: 20px;
+}
+
+/* Estilos para o footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}

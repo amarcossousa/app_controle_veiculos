@@ -23,5 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error(error);
             responseMessage.innerText = "Falha no login. Verifique suas credenciais.";
         }
-    });
+    }, 2000);
 });
