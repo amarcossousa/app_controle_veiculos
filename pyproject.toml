@@ -17,6 +17,7 @@ psycopg2 = "^2.9.5"
 passlib = "^1.7.4"
 bcrypt = "^4.0.1"
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-decouple = "^3.8"
 
 
 [build-system]

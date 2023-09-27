@@ -1,51 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&family=Poppins:wght@600&family=Roboto:wght@300;700;900&display=swap');
 * {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-}
-
-.container {
-    display: flex;
-}
-/* Estilos para a barra lateral */
-.sidebar {
-    background-color: #333;
-    color: white;
-    width: 150px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100%;
-}
-
-.sidebar ul {
-    list-style: none;
     padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-/* Estilos para o conteúdo principal à direita */
-.main-content {
-    margin-left: 170px; /* Largura da barra lateral + espaço de margem */
-    padding: 20px;
-}
-
-/* Estilos para o footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.social-links a {
-    color: white;
+    box-sizing: border-box;
+    list-style: none;
     text-decoration: none;
-    margin: 0 10px;
+}   
+
+header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Mooli', sans-serif;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a {
+    color: white;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition:  all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom:  2px solid white;
+}
+
+#menu-icon{
+    color: white;
+    font-size: 30px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+
+}
+
+.car{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section{
+    padding: 0 19%;
+}
+
+.car-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 40px;
+
+}
+.car-text h1{
+    font-family: 'Mooli', sans-serif;
+    font-size: 30px;
+    line-height:    1;
+    color: white;
+    margin: 0 0 45px;
+}
+
+.car-text h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.car-text p {
+    color: white;
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+.car-text a {
+    display: inline-block;
+    color: white;
+    background: #4d9559;
+    border: 1px solid transparent;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+}
+
+.car-text a:hover {
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.car-text a.ctaa {
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.car-text a.ctaa i{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    padding: 0 9%;
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    color: white;
+    transition: all .50s ease;
+}
+
+.icons i:hover {
+    color: #4d9559;
+    transform: translateY(-5);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 9%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    color: white;
+    background: #4d9559;
+    border-radius: 30px;
+    transition: all .50s ease;
+
+}
+
+.scroll-down i:hover{
+    transform: translateY(-5px);
+}
+.car-img img{
+    width: 350px;
+    height: auto;
+    border-radius: 50%;
+    right: 9%;
+
+}
+.menu-login{
+    width: 100px;
+    height: 30px;
+    background: none;
+    border: solid 1px white;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+
+}
+
+
+@media (max-width: 1535px) {
+    header{
+        padding: 15px 3%;
+        transition: .2s;
+    }
+    .icons{
+        padding: 0 3%;
+        transition: .2s;
+    }
+    scroll-down{
+        right: 3%;
+        transform: .2s;
+    }
+
+}
+
+@media (max-width: 1460px) {
+    section{
+        padding: 0 12%;
+        transition: .2s;
+    }
+}
+
+@media (max-width: 1340px) {
+    .car-img img{
+        width: 100%;
+        height: auto;
+    }
+    .car-text h1{
+        font-size: 75px;
+        margin: 0 0 30px;
+    }
+    .car-text h5{
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 1195px){
+    section{
+        padding: 0 3%;
+        transition: .2s;
+    }
+    .car-text{
+        padding-top: 115px;
+    }
+    .car-img {
+        text-align: center;
+    }
+    .car-img img {
+        width: 360px;
+        height: auto;
+    }
+    .car{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
 }

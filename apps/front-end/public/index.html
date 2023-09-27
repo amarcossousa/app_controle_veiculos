@@ -4,30 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/apps/front-end/src/styles/login.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/apps/front-end/src/styles/index.css">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li>home</li>
-                <li>sobre</li>
-                <li>produtos</li>
-                <li class="logged-in-button"> <button>Area logada</button></li>
-            </ul>
-        </nav>
-        
-        <main class="main-content">
-            <!-- Conteúdo da página -->
-        </main>
+    <header>
+        <a href="#" class="logo"> SIG-CAR</a>
 
-        <footer class="footer">
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-            </div>
-        </footer>
+        <ul class="navlist">
+            <li> <a href="#">Inicio</a></li>
+            <li> <a href="#">Sobre</a></li>
+            <li> <a href="#">Contatos</a></li>
+            <li> <a href="#">Parceiros</a></li>
+        </ul>
+        <button class="menu-login">Login</button>
+        <div class="bx bx-menu" id="menu-icon"></div>
+  
+    </header>
+    <section class="car">
+        <div class="car-text">
+            <h5>#2 Busque tranquilidade</h5>
+            <h4>Nós cuidamos da sua frota</h4>
+            <h1>Sistema Integrado de Gerenciamento de Veiculos</h1>
+            <p>Nós mantemos sua tranquilidade, enquatos suas equipes estão em campo</p>
+            <a href="#">Contate-nos</a>
+            <a href="#" class="ctaa"><i class='bx bx-play'> Veja uma previa</i></a>
+
+        </div>
+        <div class="car-img">
+            <img src="/apps/front-end/src/assents/img/dog-car.png" alt="">
+        </div>
+    </section>
+    <div class="icons">
+        <a href=""> <i class='bx bxl-instagram'></i></a>
+        <a href=""> <i class='bx bxl-youtube' ></i></a>
+        <a href=""> <i class='bx bxl-telegram' ></i></a>
+    </div>
+    <div class="scroll-down">
+        <a href="#"><i class='bx bx-chevron-down'></i></a>
     </div>
     <script src="/apps/public/static/index.js"></script>
 </body>
